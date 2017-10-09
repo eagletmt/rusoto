@@ -780,7 +780,7 @@ impl ChildHealthCheckListSerializer {
     {
         writer.write(xml::writer::XmlEvent::start_element(name))?;
         for element in obj {
-            HealthCheckIdSerializer::serialize(writer, "HealthCheckId", element)?;
+            HealthCheckIdSerializer::serialize(writer, "ChildHealthCheck", element)?;
         }
         writer.write(xml::writer::XmlEvent::end_element())?;
         Ok(())
@@ -3935,7 +3935,7 @@ impl HealthCheckRegionListSerializer {
     {
         writer.write(xml::writer::XmlEvent::start_element(name))?;
         for element in obj {
-            HealthCheckRegionSerializer::serialize(writer, "HealthCheckRegion", element)?;
+            HealthCheckRegionSerializer::serialize(writer, "Region", element)?;
         }
         writer.write(xml::writer::XmlEvent::end_element())?;
         Ok(())
@@ -7101,7 +7101,7 @@ impl TagKeyListSerializer {
     {
         writer.write(xml::writer::XmlEvent::start_element(name))?;
         for element in obj {
-            TagKeySerializer::serialize(writer, "TagKey", element)?;
+            TagKeySerializer::serialize(writer, "Key", element)?;
         }
         writer.write(xml::writer::XmlEvent::end_element())?;
         Ok(())
@@ -7212,7 +7212,7 @@ impl TagResourceIdListSerializer {
     {
         writer.write(xml::writer::XmlEvent::start_element(name))?;
         for element in obj {
-            TagResourceIdSerializer::serialize(writer, "TagResourceId", element)?;
+            TagResourceIdSerializer::serialize(writer, "ResourceId", element)?;
         }
         writer.write(xml::writer::XmlEvent::end_element())?;
         Ok(())

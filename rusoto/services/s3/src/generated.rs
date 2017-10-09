@@ -303,7 +303,7 @@ impl AllowedHeadersSerializer {
     {
 
         for element in obj {
-            AllowedHeaderSerializer::serialize(writer, "AllowedHeader", element)?;
+            AllowedHeaderSerializer::serialize(writer, name, element)?;
         }
         Ok(())
     }
@@ -381,7 +381,7 @@ impl AllowedMethodsSerializer {
     {
 
         for element in obj {
-            AllowedMethodSerializer::serialize(writer, "AllowedMethod", element)?;
+            AllowedMethodSerializer::serialize(writer, name, element)?;
         }
         Ok(())
     }
@@ -459,7 +459,7 @@ impl AllowedOriginsSerializer {
     {
 
         for element in obj {
-            AllowedOriginSerializer::serialize(writer, "AllowedOrigin", element)?;
+            AllowedOriginSerializer::serialize(writer, name, element)?;
         }
         Ok(())
     }
@@ -1484,7 +1484,7 @@ impl CORSRulesSerializer {
     {
 
         for element in obj {
-            CORSRuleSerializer::serialize(writer, "CORSRule", element)?;
+            CORSRuleSerializer::serialize(writer, name, element)?;
         }
         Ok(())
     }
@@ -1888,7 +1888,7 @@ impl CompletedPartListSerializer {
     {
 
         for element in obj {
-            CompletedPartSerializer::serialize(writer, "CompletedPart", element)?;
+            CompletedPartSerializer::serialize(writer, name, element)?;
         }
         Ok(())
     }
@@ -3408,7 +3408,7 @@ impl EventListSerializer {
     {
 
         for element in obj {
-            EventSerializer::serialize(writer, "Event", element)?;
+            EventSerializer::serialize(writer, name, element)?;
         }
         Ok(())
     }
@@ -3550,7 +3550,7 @@ impl ExposeHeadersSerializer {
     {
 
         for element in obj {
-            ExposeHeaderSerializer::serialize(writer, "ExposeHeader", element)?;
+            ExposeHeaderSerializer::serialize(writer, name, element)?;
         }
         Ok(())
     }
@@ -3693,7 +3693,7 @@ impl FilterRuleListSerializer {
     {
 
         for element in obj {
-            FilterRuleSerializer::serialize(writer, "FilterRule", element)?;
+            FilterRuleSerializer::serialize(writer, name, element)?;
         }
         Ok(())
     }
@@ -5945,7 +5945,7 @@ impl InventoryOptionalFieldsSerializer {
     {
         writer.write(xml::writer::XmlEvent::start_element(name))?;
         for element in obj {
-            InventoryOptionalFieldSerializer::serialize(writer, "InventoryOptionalField", element)?;
+            InventoryOptionalFieldSerializer::serialize(writer, "Field", element)?;
         }
         writer.write(xml::writer::XmlEvent::end_element())?;
         Ok(())
@@ -6428,9 +6428,7 @@ impl LambdaFunctionConfigurationListSerializer {
     {
 
         for element in obj {
-            LambdaFunctionConfigurationSerializer::serialize(writer,
-                                                             "LambdaFunctionConfiguration",
-                                                             element)?;
+            LambdaFunctionConfigurationSerializer::serialize(writer, name, element)?;
         }
         Ok(())
     }
@@ -6893,7 +6891,7 @@ impl LifecycleRulesSerializer {
     {
 
         for element in obj {
-            LifecycleRuleSerializer::serialize(writer, "LifecycleRule", element)?;
+            LifecycleRuleSerializer::serialize(writer, name, element)?;
         }
         Ok(())
     }
@@ -8862,9 +8860,7 @@ impl NoncurrentVersionTransitionListSerializer {
     {
 
         for element in obj {
-            NoncurrentVersionTransitionSerializer::serialize(writer,
-                                                             "NoncurrentVersionTransition",
-                                                             element)?;
+            NoncurrentVersionTransitionSerializer::serialize(writer, name, element)?;
         }
         Ok(())
     }
@@ -9255,7 +9251,7 @@ impl ObjectIdentifierListSerializer {
     {
 
         for element in obj {
-            ObjectIdentifierSerializer::serialize(writer, "ObjectIdentifier", element)?;
+            ObjectIdentifierSerializer::serialize(writer, name, element)?;
         }
         Ok(())
     }
@@ -10428,7 +10424,7 @@ impl QueueConfigurationListSerializer {
     {
 
         for element in obj {
-            QueueConfigurationSerializer::serialize(writer, "QueueConfiguration", element)?;
+            QueueConfigurationSerializer::serialize(writer, name, element)?;
         }
         Ok(())
     }
@@ -10957,7 +10953,7 @@ impl ReplicationRulesSerializer {
     {
 
         for element in obj {
-            ReplicationRuleSerializer::serialize(writer, "ReplicationRule", element)?;
+            ReplicationRuleSerializer::serialize(writer, name, element)?;
         }
         Ok(())
     }
@@ -11493,7 +11489,7 @@ impl RulesSerializer {
     {
 
         for element in obj {
-            RuleSerializer::serialize(writer, "Rule", element)?;
+            RuleSerializer::serialize(writer, name, element)?;
         }
         Ok(())
     }
@@ -12170,7 +12166,7 @@ impl TargetGrantsSerializer {
     {
         writer.write(xml::writer::XmlEvent::start_element(name))?;
         for element in obj {
-            TargetGrantSerializer::serialize(writer, "TargetGrant", element)?;
+            TargetGrantSerializer::serialize(writer, "Grant", element)?;
         }
         writer.write(xml::writer::XmlEvent::end_element())?;
         Ok(())
@@ -12506,7 +12502,7 @@ impl TopicConfigurationListSerializer {
     {
 
         for element in obj {
-            TopicConfigurationSerializer::serialize(writer, "TopicConfiguration", element)?;
+            TopicConfigurationSerializer::serialize(writer, name, element)?;
         }
         Ok(())
     }
@@ -12642,7 +12638,7 @@ impl TransitionListSerializer {
     {
 
         for element in obj {
-            TransitionSerializer::serialize(writer, "Transition", element)?;
+            TransitionSerializer::serialize(writer, name, element)?;
         }
         Ok(())
     }

@@ -155,7 +155,7 @@ impl AliasListSerializer {
     {
         writer.write(xml::writer::XmlEvent::start_element(name))?;
         for element in obj {
-            StringSerializer::serialize(writer, "String", element)?;
+            StringSerializer::serialize(writer, "CNAME", element)?;
         }
         writer.write(xml::writer::XmlEvent::end_element())?;
         Ok(())
@@ -377,7 +377,7 @@ impl AwsAccountNumberListSerializer {
     {
         writer.write(xml::writer::XmlEvent::start_element(name))?;
         for element in obj {
-            StringSerializer::serialize(writer, "String", element)?;
+            StringSerializer::serialize(writer, "AwsAccountNumber", element)?;
         }
         writer.write(xml::writer::XmlEvent::end_element())?;
         Ok(())
@@ -1195,7 +1195,7 @@ impl CookieNameListSerializer {
     {
         writer.write(xml::writer::XmlEvent::start_element(name))?;
         for element in obj {
-            StringSerializer::serialize(writer, "String", element)?;
+            StringSerializer::serialize(writer, "Name", element)?;
         }
         writer.write(xml::writer::XmlEvent::end_element())?;
         Ok(())
@@ -3709,7 +3709,7 @@ impl HeaderListSerializer {
     {
         writer.write(xml::writer::XmlEvent::start_element(name))?;
         for element in obj {
-            StringSerializer::serialize(writer, "String", element)?;
+            StringSerializer::serialize(writer, "Name", element)?;
         }
         writer.write(xml::writer::XmlEvent::end_element())?;
         Ok(())
@@ -4934,7 +4934,7 @@ impl LocationListSerializer {
     {
         writer.write(xml::writer::XmlEvent::start_element(name))?;
         for element in obj {
-            StringSerializer::serialize(writer, "String", element)?;
+            StringSerializer::serialize(writer, "Location", element)?;
         }
         writer.write(xml::writer::XmlEvent::end_element())?;
         Ok(())
@@ -5755,7 +5755,7 @@ impl PathListSerializer {
     {
         writer.write(xml::writer::XmlEvent::start_element(name))?;
         for element in obj {
-            StringSerializer::serialize(writer, "String", element)?;
+            StringSerializer::serialize(writer, "Path", element)?;
         }
         writer.write(xml::writer::XmlEvent::end_element())?;
         Ok(())
@@ -6001,7 +6001,7 @@ impl QueryStringCacheKeysListSerializer {
     {
         writer.write(xml::writer::XmlEvent::start_element(name))?;
         for element in obj {
-            StringSerializer::serialize(writer, "String", element)?;
+            StringSerializer::serialize(writer, "Name", element)?;
         }
         writer.write(xml::writer::XmlEvent::end_element())?;
         Ok(())
@@ -7178,7 +7178,7 @@ impl TagKeyListSerializer {
     {
         writer.write(xml::writer::XmlEvent::start_element(name))?;
         for element in obj {
-            TagKeySerializer::serialize(writer, "TagKey", element)?;
+            TagKeySerializer::serialize(writer, "Key", element)?;
         }
         writer.write(xml::writer::XmlEvent::end_element())?;
         Ok(())

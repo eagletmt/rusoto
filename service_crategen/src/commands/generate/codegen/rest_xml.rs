@@ -314,20 +314,21 @@ fn generate_list_serializer(shape: &Shape) -> String {
         _ => false,
     };
 
-    let element_type = &mutate_type_name(&shape.member_type()[..]);
+    let member = shape.member.as_ref().expect("Member shape undefined");
+    let element_type = &mutate_type_name(&member.shape);
     let mut serializer = "".to_owned();
 
-    if !flattened {
+    if flattened {
+        serializer += &format!("
+            for element in obj {{
+                {element_type}Serializer::serialize(writer, name, element)?;
+            }}", element_type = element_type);
+    } else {
         serializer += "writer.write(xml::writer::XmlEvent::start_element(name))?;";
-    }
-
-    serializer += &format!("
-        for element in obj {{
-            {element_type}Serializer::serialize(writer, \"{element_type}\", element)?;
-        }}",
-                           element_type = element_type);
-
-    if !flattened {
+        serializer += &format!("
+            for element in obj {{
+                {element_type}Serializer::serialize(writer, \"{location_name}\", element)?;
+            }}", element_type = element_type, location_name = member.location_name.as_ref().unwrap());
         serializer += "writer.write(xml::writer::XmlEvent::end_element())?;";
     }
 
