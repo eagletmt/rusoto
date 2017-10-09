@@ -247,13 +247,14 @@ fn generate_payload_member_serialization(shape: &Shape) -> String {
     } else {
         format!("if input.{payload_field}.is_some() {{
                     let mut writer = EventWriter::new(Vec::new());
-                    {xml_type}Serializer::serialize(&mut writer, \"{xml_type}\", input.{payload_field}.as_ref().unwrap());
+                    {xml_type}Serializer::serialize(&mut writer, \"{location_name}\", input.{payload_field}.as_ref().unwrap());
                     payload = writer.into_inner();
                 }} else {{
                     payload = Vec::new();
                 }}",
                 payload_field = payload_field.to_snake_case(),
-                xml_type = payload_member.shape)
+                xml_type = payload_member.shape,
+                location_name = payload_member.location_name.as_ref().unwrap())
     }
 
 }

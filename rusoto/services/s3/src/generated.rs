@@ -18703,7 +18703,7 @@ impl<P, D> S3 for S3Client<P, D>
         if input.multipart_upload.is_some() {
             let mut writer = EventWriter::new(Vec::new());
             CompletedMultipartUploadSerializer::serialize(&mut writer,
-                                                          "CompletedMultipartUpload",
+                                                          "CompleteMultipartUpload",
                                                           input.multipart_upload.as_ref().unwrap());
             payload = writer.into_inner();
         } else {
@@ -22227,7 +22227,7 @@ impl<P, D> S3 for S3Client<P, D>
         if input.lifecycle_configuration.is_some() {
             let mut writer = EventWriter::new(Vec::new());
             BucketLifecycleConfigurationSerializer::serialize(&mut writer,
-                                                              "BucketLifecycleConfiguration",
+                                                              "LifecycleConfiguration",
                                                               input
                                                                   .lifecycle_configuration
                                                                   .as_ref()
