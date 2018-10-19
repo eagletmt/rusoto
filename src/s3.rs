@@ -1047,26 +1047,11 @@ impl DeleteMarkerEntryParser {
     fn parse_xml<T: Peek + Next>(tag_name: &str, stack: &mut T) -> Result<DeleteMarkerEntry, XmlParseError> {
         try!(start_element(tag_name, stack));
         let mut obj = DeleteMarkerEntry::default();
+        let mut arr: [String, String, String, String] = ["Owner", "IsLatest", "Key", "LastModified"]
         loop {
             let current_name = try!(peek_at_name(stack));
-            if current_name == "Owner" {
-                obj.owner = try!(OwnerParser::parse_xml("Owner", stack));
-                continue;
-            }
-            if current_name == "IsLatest" {
-                obj.is_latest = try!(IsLatestParser::parse_xml("IsLatest", stack));
-                continue;
-            }
-            if current_name == "VersionId" {
-                obj.version_id = try!(ObjectVersionIdParser::parse_xml("VersionId", stack));
-                continue;
-            }
-            if current_name == "Key" {
-                obj.key = try!(ObjectKeyParser::parse_xml("Key", stack));
-                continue;
-            }
-            if current_name == "LastModified" {
-                obj.last_modified = try!(LastModifiedParser::parse_xml("LastModified", stack));
+            if arr[current_name] {
+                obj.owner = try!(format!("{}Parser::parse_xml", current_name).call(current_owner, stack);
                 continue;
             }
             break;
